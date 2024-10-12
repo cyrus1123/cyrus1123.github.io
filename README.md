@@ -1,5 +1,5 @@
 
-# Healthcare Realtime RAG-Chatbot Code - Project README
+# Minimal Chatbot Code - Project README
 
 ## Overview
 
@@ -24,104 +24,67 @@ The system is built on a microservices architecture, where different functionali
    
    **Endpoint**: `/chat`
    
+   **Code Snippet**:
+   ```python
+{chatbot_code[:400]}...
+   ```
+
 2. **Data Ingestion Service**:
    - Responsible for ingesting data from Kafka using Apache Beam.
    - Transmits ingested data to the Preprocessing Service.
    
    **Endpoint**: `/ingest`
    
+   **Code Snippet**:
+   ```python
+{data_ingestion_code[:400]}...
+   ```
+
 3. **Preprocessing Service**:
    - Handles data preprocessing tasks such as windowing and feature extraction.
    - Processes both user queries and ingested data for further analysis.
    
    **Endpoint**: `/preprocess`
    
+   **Code Snippet**:
+   ```python
+{preprocessing_code[:400]}...
+   ```
+
 4. **Model Drift Control Service**:
    - Monitors the model for concept drift.
    - Retrains the model when drift is detected.
    
    **Endpoint**: `/check_drift`
    
+   **Code Snippet**:
+   ```python
+{model_drift_code[:400]}...
+   ```
+
 5. **RAG (Retrieval-Augmented Generation) Service**:
-   - Retrieves relevant documents from a knowledge base based on the user's query.
-   - Uses the retrieved information to generate responses.
+   - Retrieves relevant documents from a large corpus for better chatbot responses.
    
    **Endpoint**: `/retrieve`
+   
+   **Code Snippet**:
+   ```python
+{rag_code[:400]}...
+   ```
 
-### Communication Between Microservices:
-- The services communicate via HTTP REST API calls.
-- The Chatbot Service calls the Preprocessing and RAG services to preprocess queries and retrieve documents, respectively.
-- The Data Ingestion Service communicates with the Preprocessing Service for real-time data flow.
-  
-## Prerequisites
+## Tests
 
-1. Python 3.7+
-2. Docker (for running Kafka, Zookeeper, and other dependencies)
-3. Google Cloud SDK (if using Apache Beam's Dataflow Runner)
-4. AWS account for using SageMaker, MSK, and other AWS services
-5. Kafka setup (local or cloud-based)
-
-### Environment Variables
-
-The application requires the following environment variables to be set for different services to function correctly:
-
-- Kafka Configuration:
-  - `KAFKA_BOOTSTRAP_SERVERS`: Bootstrap servers for Kafka (e.g., `localhost:9092`).
-
-- Flink Configuration:
-  - `FLINK_JOBMANAGER_ADDRESS`: Address of Flink Job Manager.
-
-- Twilio Configuration (For SMS Notifications):
-  - `TWILIO_ACCOUNT_SID`: Twilio account SID.
-  - `TWILIO_AUTH_TOKEN`: Twilio Auth Token.
-  - `TWILIO_PHONE_NUMBER`: Twilio phone number to send messages.
-  - `NOTIFICATION_PHONE_NUMBER`: Phone number to receive SMS notifications.
-
-- Email Configuration (SMTP server details):
-  - `SMTP_SERVER`: SMTP server address (e.g., `smtp.gmail.com`).
-  - `SMTP_PORT`: SMTP server port (e.g., `587`).
-  - `SMTP_USERNAME`: Username for the SMTP server.
-  - `SMTP_PASSWORD`: Password for the SMTP server.
-
-## Running the Project
-
-1. Clone the repository:
-
-```sh
-git clone https://github.com/your-repo/chatbot-project.git
-```
-
-2. Set up environment variables for Kafka, Flink, Twilio, and SMTP as described in the "Environment Variables" section.
-
-3. Start each microservice using Docker or directly using `uvicorn`:
-
-```sh
-# Start the chatbot service
-uvicorn chatbot_service:app --reload
-
-# Start the data ingestion service
-uvicorn data_ingestion_service:app --reload
-
-# Start the preprocessing service
-uvicorn preprocessing_service:app --reload
-
-# Start the model drift control service
-uvicorn model_drift_control_service:app --reload
-
-# Start the RAG service
-uvicorn rag_service:app --reload
-```
-
-4. (Optional) Use Docker Compose to manage and run all services at once.
-
-## Testing
-
-Unit tests are included for the FastAPI endpoints and the data pipelines.
+Testing of the microservices and the data pipelines is conducted using pytest.
 
 To run the tests:
 
 ```sh
 pytest
+```
+
+**Test Code Snippet**:
+```python
+{test_code[:400]}...
 ```
 
 ## Improvements Implemented
@@ -165,5 +128,13 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Contact
 
+If you have any questions or need help getting started, feel free to reach out!
 
+**Email**: [your_email@example.com]  
+**GitHub**: [your_github_username]
+
+---
+
+Happy coding! 😊
