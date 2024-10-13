@@ -1,6 +1,5 @@
 
-# Minimal Chatbot Code - Project README
-
+# Real-time Data Ingestion Chatbot with RAG for Healthcare, Providing Doctor and Patient Recommendations Based on Live Data.
 ## Overview
 
 This project involves building a minimal chatbot and anomaly detection system using FastAPI, Apache Beam, Apache Flink, Kafka, and several AWS services. It also includes features for data processing, model monitoring, SMS and email notifications, and anomaly detection for sensor data. The chatbot leverages edge computing and integrates with Twilio for notifications.
