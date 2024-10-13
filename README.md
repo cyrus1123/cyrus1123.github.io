@@ -1,5 +1,6 @@
 
 # Real-time Data Ingestion Chatbot with RAG for Healthcare, Providing Doctor and Patient Recommendations Based on Live Data.
+
 ## Overview
 
 This project involves building a minimal chatbot and anomaly detection system using FastAPI, Apache Beam, Apache Flink, Kafka, and several AWS services. It also includes features for data processing, model monitoring, SMS and email notifications, and anomaly detection for sensor data. The chatbot leverages edge computing and integrates with Twilio for notifications.
@@ -382,66 +383,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Contact
-
-If you have any questions or need help getting started, feel free to reach out!
-
-**Email**: [your_email@example.com]  
-**GitHub**: [your_github_username]
-
----
-
-Happy coding! 😊
-
-
-
-### Rewritten Minimal Chatbot Code Explanation
-
-The following code implements an end-to-end solution for real-time sensor data ingestion, processing, anomaly detection, and notification using FastAPI, Kafka, Apache Beam, and Apache Flink.
-
-#### Line-by-Line Explanation:
-
-1. **Imports**:
-   - **FastAPI**: Framework to create a simple API.
-   - **Kafka (confluent_kafka)**: Kafka producer and consumer for managing data streams.
-   - **Apache Beam**: Beam for parallel data processing, integrated with Kafka for ingestion and output.
-   - **PyFlink**: Apache Flink for real-time data stream processing.
-   - **Twilio & SMTP**: For sending notifications (SMS via Twilio and emails via SMTP).
-   - **MLflow**: For model experiment tracking and drift detection.
-   
-2. **Logging Setup**:
-   - Basic logging is initialized to capture INFO and ERROR logs.
-   
-3. **Kafka Configuration**:
-   - Kafka is set up for data ingestion (raw sensor data) and output (processed data).
-   
-4. **Flink and Beam Configuration**:
-   - Both **Apache Flink** and **Apache Beam** pipelines are defined to handle data processing in real-time using sliding and tumbling windows.
-   
-5. **Notification Functions**:
-   - **send_sms_notification** and **send_email_notification** are utility functions to send alerts in case of errors in data processing pipelines or model drift detection.
-   
-6. **Kafka Topic Creation**:
-   - Topics for sensor data ingestion and knowledge updates are created via Kafka's AdminClient.
-   
-7. **Apache Beam Pipeline**:
-   - The Beam pipeline processes sensor data using windowing and maps functions for feature extraction.
-   
-8. **Apache Flink Job**:
-   - The Flink job processes real-time sensor data with a tumbling window and produces results back to Kafka.
-   
-9. **Model Drift Monitoring**:
-   - The `monitor_model_drift` function monitors the model's performance, tracking F1 score. When a drift is detected, it triggers notifications.
-   
-10. **FastAPI Sensor Data Endpoint**:
-    - The `/sensor-data` endpoint is used to ingest sensor data, which is sent to Kafka for further processing.
-    
-11. **Main Function**:
-    - The `main()` function runs both the Beam and Flink pipelines asynchronously to ensure real-time processing.
-    
-12. **Uvicorn Server**:
-    - The Uvicorn server runs the FastAPI app for the sensor data ingestion API.
-
-### Code:
-
-{new_code}
