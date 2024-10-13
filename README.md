@@ -380,6 +380,5 @@ test_chatbot.test_chat_endpoint()
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contributing
-
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
